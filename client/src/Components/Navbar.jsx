@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import styles from "../Styles/Navbar.module.css";
-
+import { getQuote } from "../Services/GetQuotes.service";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-regular-svg-icons";
 import { faGear, faRotate } from "@fortawesome/free-solid-svg-icons";
 
-const Navbar = () => {
+const Navbar = ({ onRefresh }) => {
   const [favouriteCount, setFavouriteCount] = useState(0);
 
   useEffect(() => {
@@ -51,7 +51,11 @@ const Navbar = () => {
           <FontAwesomeIcon icon={faGear} />
         </button>
 
-        <button className={styles.IconButton} aria-label="Refresh">
+        <button
+          className={styles.IconButton}
+          onClick={onRefresh}
+          aria-label="Refresh"
+        >
           <FontAwesomeIcon icon={faRotate} />
         </button>
       </div>

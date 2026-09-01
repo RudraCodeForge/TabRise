@@ -2,9 +2,17 @@
   "manifest_version": 3,
   "name": "TabRise",
   "version": "1.0.0",
-  "Description": "Your new tab, your next step.",
+  "description": "Your new tab, your next step.",
+
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
-  "permission": ["storage"]
+
+  "permissions": ["storage"],
+
+  "host_permissions": ["https://zenquotes.io/*"],
+
+  "background": {
+    "service_worker": "service-worker.js"
+  }
 }
