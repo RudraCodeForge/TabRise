@@ -1,0 +1,98 @@
+.FooterContainer {
+  border-top: 2px solid black;
+  width: 100%;
+  margin-top: 70px;
+  padding: 18px 0 12px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.LeftCon,
+.CenterCon,
+.RightCon {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.LeftCon {
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 4px;
+}
+
+.CenterCon {
+  flex: 1;
+  justify-content: center;
+}
+
+.RightCon {
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.Title {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  color: #2e2f34;
+}
+
+.Subtitle {
+  font-size: 13px;
+  color: #5a5f69;
+}
+
+.Text {
+  font-size: 13px;
+  color: #5b6170;
+  text-align: center;
+}
+
+.Text a {
+  color: rgb(85, 68, 217);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.Text a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .FooterContainer {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    padding: 16px 0 12px;
+  }
+
+  .LeftCon,
+  .CenterCon,
+  .RightCon {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+
+  .LeftCon {
+    align-items: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .Title {
+    font-size: 16px;
+  }
+
+  .Subtitle,
+  .Text {
+    font-size: 12px;
+  }
+}

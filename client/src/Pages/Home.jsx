@@ -10,7 +10,7 @@ import {
   faShareNodes,
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
-
+import Footer from "../Components/Footer";
 const Home = ({ quote, onRefresh, onFavourite, onCopyQuote, onShareQuote }) => {
   const Name = localStorage.getItem("userName");
   const [isFavourite, setIsFavourite] = useState(false);
@@ -116,6 +116,7 @@ const Home = ({ quote, onRefresh, onFavourite, onCopyQuote, onShareQuote }) => {
           <span className={styles.ButtonText}>{shareLabel}</span>
         </button>
       </div>
+      <Footer />
     </div>
   );
 };
