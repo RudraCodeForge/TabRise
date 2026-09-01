@@ -103,10 +103,6 @@
   font-weight: 700;
 }
 
-/* =========================
-   TABLET / MOBILE
-========================= */
-
 @media (max-width: 600px) {
   .NavContainer {
     height: 58px;
@@ -147,7 +143,6 @@
     flex-shrink: 0;
   }
 
-  /* Hide Favourites text on mobile */
   .FavouriteText {
     display: none;
   }
@@ -165,10 +160,6 @@
     font-size: 10px;
   }
 }
-
-/* =========================
-   SMALL MOBILE
-========================= */
 
 @media (max-width: 380px) {
   .NavContainer {

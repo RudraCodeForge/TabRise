@@ -1,6 +1,8 @@
 import styles from "../Styles/Home.module.css";
-
-const Home = ({ quote }) => {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart, faClipboard } from "@fortawesome/free-regular-svg-icons";
+import { faRotate, faShareNodes } from "@fortawesome/free-solid-svg-icons";
+const Home = ({ quote, onRefresh }) => {
   const Name = localStorage.getItem("userName");
 
   const time = new Date().getHours();
@@ -30,6 +32,24 @@ const Home = ({ quote }) => {
           <span className={styles.author}>— {quote.a}</span>
         </div>
       )}
+      <div className={styles.ButtonContainer}>
+        <button className={styles.Button}>
+          <FontAwesomeIcon icon={faHeart} />
+          <span className={styles.ButtonText}>Favourites</span>
+        </button>
+        <button className={styles.Button} onClick={onRefresh}>
+          <FontAwesomeIcon icon={faRotate} />
+          <span className={styles.ButtonText}>New Quote</span>
+        </button>
+        <button className={styles.Button}>
+          <FontAwesomeIcon icon={faClipboard} />
+          <span className={styles.ButtonText}>Copy Quote</span>
+        </button>
+        <button className={styles.Button}>
+          <FontAwesomeIcon icon={faShareNodes} />
+          <span className={styles.ButtonText}>Share</span>
+        </button>
+      </div>
     </div>
   );
 };

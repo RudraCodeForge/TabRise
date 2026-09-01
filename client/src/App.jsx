@@ -8,7 +8,14 @@ import { getQuote } from "./Services/GetQuotes.service";
 
 function App() {
   const [userName, setUserName] = useState(localStorage.getItem("userName"));
-
+  /* const quote = {
+    q: "Life is from the inside out. When you shift on the inside, life shifts on the outside.",
+    a: "Kamal Ravikant",
+  };
+  const fetchQuote = () => {
+    console.log("Fetching quote...");
+  };
+*/
   const [quote, setQuote] = useState(null);
 
   const fetchQuote = async () => {
@@ -35,7 +42,10 @@ function App() {
       <Navbar onRefresh={fetchQuote} />
 
       <Routes>
-        <Route path="/" element={<Home quote={quote} />} />
+        <Route
+          path="/"
+          element={<Home quote={quote} onRefresh={fetchQuote} />}
+        />
       </Routes>
     </>
   );

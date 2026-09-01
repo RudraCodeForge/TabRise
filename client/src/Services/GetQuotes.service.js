@@ -10,9 +10,6 @@ export const getQuote = () => {
         reject(new Error(response?.error || "Failed to get quote"));
         return;
       }
-
-      console.log("Quote received:", response.quote);
-
       resolve(response.quote);
     });
   });
