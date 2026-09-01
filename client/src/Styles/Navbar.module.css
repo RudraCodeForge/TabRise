@@ -1,0 +1,207 @@
+.NavContainer {
+  width: 100%;
+  height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 20px 24px;
+  box-sizing: border-box;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.LeftCon {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  min-width: 0;
+}
+
+.logoContainer {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  background: rgb(85, 68, 217);
+  border-radius: 11px;
+
+  box-shadow:
+    0 4px 10px rgba(85, 68, 217, 0.18),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.logoContainer svg {
+  width: 23px;
+  height: 23px;
+}
+
+.TextCon {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+
+  color: #202124;
+
+  white-space: nowrap;
+}
+
+.RightCon {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.IconButton {
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: #62646b;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.IconButton:hover {
+  background: rgba(85, 68, 217, 0.09);
+  color: rgb(85, 68, 217);
+}
+
+.Count {
+  min-width: 20px;
+  height: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 5px;
+
+  border-radius: 6px;
+
+  background: rgba(85, 68, 217, 0.1);
+  color: rgb(85, 68, 217);
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* =========================
+   TABLET / MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .NavContainer {
+    height: 58px;
+    padding: 0 16px;
+  }
+
+  .logoContainer {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .logoContainer svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  .TextCon {
+    font-size: 18px;
+  }
+
+  .RightCon {
+    gap: 3px;
+    flex-shrink: 0;
+  }
+
+  .IconButton {
+    width: 36px;
+    height: 36px;
+
+    padding: 0;
+
+    gap: 0;
+    border-radius: 9px;
+
+    font-size: 15px;
+
+    flex-shrink: 0;
+  }
+
+  /* Hide Favourites text on mobile */
+  .FavouriteText {
+    display: none;
+  }
+
+  .Count {
+    min-width: 17px;
+    height: 17px;
+
+    padding: 0 4px;
+
+    margin-left: 3px;
+
+    border-radius: 5px;
+
+    font-size: 10px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 380px) {
+  .NavContainer {
+    padding: 0 10px;
+  }
+
+  .LeftCon {
+    gap: 8px;
+  }
+
+  .TextCon {
+    font-size: 17px;
+  }
+
+  .RightCon {
+    gap: 1px;
+  }
+
+  .IconButton {
+    width: 32px;
+    height: 32px;
+
+    font-size: 14px;
+    border-radius: 8px;
+  }
+
+  .Count {
+    min-width: 15px;
+    height: 15px;
+
+    padding: 0 3px;
+
+    font-size: 9px;
+    border-radius: 4px;
+  }
+}

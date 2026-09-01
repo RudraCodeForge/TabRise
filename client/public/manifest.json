@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "TabRise",
+  "version": "1.0.0",
+  "Description": "Your new tab, your next step.",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "permission": ["storage"]
+}
