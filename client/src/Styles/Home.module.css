@@ -122,6 +122,20 @@
   transition: all 0.2s ease-in-out;
 }
 
+.FavouriteActive {
+  background: rgba(154, 107, 255, 0.327);
+}
+
+.FavouriteActive svg {
+  color: rgb(85, 68, 217);
+}
+
+.ActionActive {
+  background: rgba(85, 68, 217, 0.12);
+  border-color: rgba(85, 68, 217, 0.18);
+  color: rgb(85, 68, 217);
+}
+
 .ButtonText {
   display: inline-block;
 }

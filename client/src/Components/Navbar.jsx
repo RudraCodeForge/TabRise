@@ -1,19 +1,9 @@
-import { useEffect, useState } from "react";
 import styles from "../Styles/Navbar.module.css";
-import { getQuote } from "../Services/GetQuotes.service";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-regular-svg-icons";
 import { faGear, faRotate } from "@fortawesome/free-solid-svg-icons";
 
-const Navbar = ({ onRefresh }) => {
-  const [favouriteCount, setFavouriteCount] = useState(0);
-
-  useEffect(() => {
-    const favourites = JSON.parse(localStorage.getItem("favourites") || "[]");
-
-    setFavouriteCount(favourites.length);
-  }, []);
-
+const Navbar = ({ onRefresh, favouriteCount }) => {
   return (
     <nav className={styles.NavContainer}>
       <div className={styles.LeftCon}>
