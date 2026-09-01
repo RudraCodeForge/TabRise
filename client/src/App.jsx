@@ -4,11 +4,18 @@ import { useEffect, useState } from "react";
 import Navbar from "./Components/Navbar";
 import Welcome from "./Components/Welcome";
 import Home from "./Pages/Home";
+import Favourites from "./Pages/Favourites";
 import { getQuote } from "./Services/GetQuotes.service";
 
 function App() {
   const [userName, setUserName] = useState(() =>
     localStorage.getItem("userName"),
+  );
+  const [darkMode, setDarkMode] = useState(
+    () => localStorage.getItem("darkMode") === "true",
+  );
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem("theme") || "soft-indigo",
   );
   const [quote, setQuote] = useState(null);
   const [favouriteQuotes, setFavouriteQuotes] = useState(() => {
@@ -46,6 +53,18 @@ function App() {
       const nextFavourites = alreadyExists
         ? previous
         : [...previous, quoteToSave];
+      localStorage.setItem("favourites", JSON.stringify(nextFavourites));
+      return nextFavourites;
+    });
+  };
+
+  const removeFavourite = (quoteToRemove) => {
+    if (!quoteToRemove?.q || !quoteToRemove?.a) return;
+
+    setFavouriteQuotes((previous) => {
+      const nextFavourites = previous.filter(
+        (item) => !(item.q === quoteToRemove.q && item.a === quoteToRemove.a),
+      );
       localStorage.setItem("favourites", JSON.stringify(nextFavourites));
       return nextFavourites;
     });
@@ -89,6 +108,26 @@ function App() {
     }
   };
 
+  const updateUserName = (nextName) => {
+    const cleanName = nextName.trim();
+
+    if (!cleanName) return false;
+
+    localStorage.setItem("userName", cleanName);
+    setUserName(cleanName);
+    return true;
+  };
+
+  useEffect(() => {
+    document.body.setAttribute("data-theme", darkMode ? "dark" : "light");
+    localStorage.setItem("darkMode", String(darkMode));
+  }, [darkMode]);
+
+  useEffect(() => {
+    document.body.setAttribute("data-color-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
   useEffect(() => {
     if (userName) {
       fetchQuote();
@@ -101,7 +140,16 @@ function App() {
 
   return (
     <>
-      <Navbar onRefresh={fetchQuote} favouriteCount={favouriteQuotes.length} />
+      <Navbar
+        onRefresh={fetchQuote}
+        favouriteCount={favouriteQuotes.length}
+        darkMode={darkMode}
+        onToggleDarkMode={() => setDarkMode((current) => !current)}
+        theme={theme}
+        onThemeChange={setTheme}
+        userName={userName}
+        onUpdateUserName={updateUserName}
+      />
 
       <Routes>
         <Route
@@ -111,6 +159,17 @@ function App() {
               quote={quote}
               onRefresh={fetchQuote}
               onFavourite={addFavourite}
+              onCopyQuote={copyQuote}
+              onShareQuote={shareQuote}
+            />
+          }
+        />
+        <Route
+          path="/favourites"
+          element={
+            <Favourites
+              favourites={favouriteQuotes}
+              onRemoveFavourite={removeFavourite}
               onCopyQuote={copyQuote}
               onShareQuote={shareQuote}
             />

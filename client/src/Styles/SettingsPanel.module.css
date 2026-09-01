@@ -1,0 +1,225 @@
+.panel {
+  position: fixed;
+  top: 72px;
+  right: 18px;
+  width: min(320px, calc(100vw - 24px));
+  max-height: calc(100vh - 96px);
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(85, 68, 217, 0.08);
+  border-radius: 22px;
+  box-shadow: 0 18px 40px rgba(17, 24, 39, 0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transform: translateX(calc(100% + 26px));
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+  z-index: 120;
+  overflow: hidden;
+}
+
+:global(body[data-theme="dark"]) .panel {
+  background: rgba(15, 18, 28, 0.86);
+  border-color: rgba(148, 163, 184, 0.18);
+  box-shadow: 0 18px 40px rgba(2, 6, 23, 0.42);
+}
+
+.open {
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 18px 14px;
+  border-bottom: 1px solid rgba(85, 68, 217, 0.08);
+}
+
+.label {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgb(85, 68, 217);
+}
+
+.title {
+  margin: 6px 0 0;
+  font-size: 18px;
+  color: #1f2330;
+}
+
+:global(body[data-theme="dark"]) .title,
+:global(body[data-theme="dark"]) .optionRow,
+:global(body[data-theme="dark"]) .select,
+:global(body[data-theme="dark"]) .closeButton {
+  color: #e5e7eb;
+}
+
+:global(body[data-theme="dark"]) .optionRow {
+  background: rgba(148, 163, 184, 0.06);
+}
+
+:global(body[data-theme="dark"]) .select {
+  background: rgba(15, 23, 42, 0.7);
+  border-color: rgba(148, 163, 184, 0.2);
+}
+
+:global(body[data-theme="dark"]) .closeButton {
+  background: rgba(148, 163, 184, 0.08);
+}
+
+.closeButton {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(85, 68, 217, 0.08);
+  color: #464d5b;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.body {
+  padding: 14px 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 380px;
+  overflow-y: auto;
+}
+
+.body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.body::-webkit-scrollbar-thumb {
+  background: rgba(85, 68, 217, 0.18);
+  border-radius: 999px;
+}
+
+.optionRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 10px;
+  border-radius: 14px;
+  background: rgba(85, 68, 217, 0.02);
+  color: #40475b;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.profileRow {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 10px;
+  border-radius: 14px;
+  background: rgba(85, 68, 217, 0.04);
+  color: #40475b;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.profileControls {
+  display: flex;
+  gap: 8px;
+}
+
+.nameInput {
+  min-width: 0;
+  flex: 1;
+  border: 1px solid rgba(85, 68, 217, 0.1);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 8px 10px;
+  color: #2b3240;
+  font-size: 13px;
+  outline: none;
+}
+
+.nameInput:focus {
+  border-color: rgb(85, 68, 217);
+  box-shadow: 0 0 0 3px rgba(85, 68, 217, 0.1);
+}
+
+.updateButton {
+  border: 0;
+  border-radius: 10px;
+  padding: 0 11px;
+  background: rgb(85, 68, 217);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+:global(body[data-theme="dark"]) .profileRow {
+  background: rgba(148, 163, 184, 0.06);
+  color: #e5e7eb;
+}
+
+:global(body[data-theme="dark"]) .nameInput {
+  background: rgba(15, 23, 42, 0.7);
+  border-color: rgba(148, 163, 184, 0.2);
+  color: #f3f4f6;
+}
+
+.select {
+  min-width: 120px;
+  border: 1px solid rgba(85, 68, 217, 0.1);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 8px 10px;
+  color: #2b3240;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.toggle {
+  position: relative;
+  width: 48px;
+  height: 28px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(85, 68, 217, 0.12);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toggleThumb {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 4px 10px rgba(28, 32, 42, 0.14);
+  transition: all 0.2s ease;
+}
+
+.on {
+  background: rgba(85, 68, 217, 0.18);
+}
+
+.on .toggleThumb {
+  transform: translateX(20px);
+  background: rgb(85, 68, 217);
+}
+
+@media (max-width: 600px) {
+  .panel {
+    top: 62px;
+    right: 10px;
+    width: min(290px, calc(100vw - 20px));
+  }
+}
